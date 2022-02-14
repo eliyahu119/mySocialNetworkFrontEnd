@@ -1,22 +1,22 @@
 import Twit from "./Twit";
 const data=[
     {
-        name :"name0",
+        name :"eliyahu",
         gender: 1,
         Id : 1, 
-        content: "fdfd"
+        content: "hello world!"
     } 
     , {
-      name :"name1",
+      name :"עירית נבון",
       gender: 0,
       Id : 0, 
-      content: "sdfds"
+      content: "יוקר המחיה זה חרא"
   }
-   , {
-    name :"name2",
+   , { 
+    name :"הגגג גגגג גגגגגג גג גגג גגגגגג  גגג גג גג גג  גגג גגג גג",
     gender: 0,
     Id : 1, 
-    content: "fdfd"
+    content: "קקי קקי קקי "
 } 
 
 ]
