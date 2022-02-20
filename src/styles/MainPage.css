@@ -1,0 +1,9 @@
+/*TODO NEED TO Edjust the text size to the size of the website*/
+.mainPage {
+    position: relative;
+    width: 50%;
+    left:25%; /*dont know why but hell yeah*/
+    /* background-color: #f3f3efad; */
+    word-wrap: break-word;
+    @apply mt-10;
+  }

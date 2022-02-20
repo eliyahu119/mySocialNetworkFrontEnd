@@ -1,4 +1,7 @@
 import Twit from "./Twit";
+import {useState,useEffect} from "react";
+import LoadingElement from "./LoadingElement";
+import '../styles/MainPage.css' 
 const data=[
     {
         name :"eliyahu",
@@ -17,14 +20,36 @@ const data=[
     gender: 0,
     Id : 1, 
     content: "קקי קקי קקי "
-} 
+   }
+  ] 
 
-]
+//the main page of the project.
 function MainPage() {
+  //  const [data,SetData] =useState()
+   const [Sent,setSent]=useState(false);
+  useEffect(() => {
+    // fetch.get('https://itpro2017.herokuapp.com/api/products')
+    //      .then ((result) => {
+    //         SetData(result.data);
+    //         setSent(true);
+    //          console.log(result + ' data');    
+    //      })
+    //      .catch ((error) => {
+    //          console.log(error);
+    //      })
+    const timer = setTimeout(() => {
+      setSent(true)
+    }, 1000);
+  
+  }, [])
     return (
+    <>
+    <div className={"border-b-2 border-blue-200 p-10 bg-sky-100"}>headline</div>
      <div className="mainPage">
-       {data.map(data=>Twit({data}))}
+        {Sent?data.map(data=>Twit({data})):(<LoadingElement />)}
+        {/* {data.map(data=>Twit({data}))} */}
      </div>
+     </>
     );
   }
   
