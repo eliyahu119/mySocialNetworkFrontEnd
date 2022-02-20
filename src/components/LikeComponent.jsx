@@ -8,7 +8,7 @@ const HasClicked=()=>{
 }
 
 return (
-    <button onClick={HasClicked} className={`LikeComponent ${clicked?"ClikedLike":""} `}>{"455 ♥"}</button>
+    <button onClick={HasClicked} className={`LikeComponent ${clicked?"ClikedLike":""} `}>{"455❤"}</button>
 );
 }
 

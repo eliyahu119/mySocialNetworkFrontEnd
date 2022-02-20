@@ -1,0 +1,19 @@
+.headline{
+    @apply border-b-2 border-blue-200 p-10 bg-sky-100;
+    
+}
+.WebLogo{
+    @apply inline-flex max-h-24;
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+     .headline{
+        @apply border-b-2 border-blue-200 p-10 bg-sky-100 justify-center;
+        
+      }
+      .WebLogo{
+        @apply inline-block max-h-24 m-auto relative;
+    
+    }
+    }

@@ -1,6 +1,7 @@
 import Twit from "./Twit";
 import {useState,useEffect} from "react";
 import LoadingElement from "./LoadingElement";
+import HeadLine from "./HeadLine";
 import '../styles/MainPage.css' 
 const data=[
     {
@@ -18,7 +19,7 @@ const data=[
    , { 
     name :"הגגג גגגג גגגגגג גג גגג גגגגגג  גגג גג גג גג  גגג גגג גג",
     gender: 0,
-    Id : 1, 
+    Id : 2, 
     content: "קקי קקי קקי "
    }
   ] 
@@ -44,9 +45,9 @@ function MainPage() {
   }, [])
     return (
     <>
-    <div className={"border-b-2 border-blue-200 p-10 bg-sky-100"}>headline</div>
+    <HeadLine />
      <div className="mainPage">
-        {Sent?data.map(data=>Twit({data})):(<LoadingElement />)}
+        {Sent?data.map(data=>(<Twit data={data} key={data.Id} />)):(<LoadingElement />)}
         {/* {data.map(data=>Twit({data}))} */}
      </div>
      </>
