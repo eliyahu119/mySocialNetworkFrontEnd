@@ -1,6 +1,7 @@
 import { useState } from "react";
 import"../styles/LikeComponent.css";
 
+//the like component
 const LikeComponent=({likes})=>{
 const [clicked,hasclicked]= useState(false);
 const HasClicked=()=>{
