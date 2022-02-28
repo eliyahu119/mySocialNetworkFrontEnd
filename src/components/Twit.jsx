@@ -1,22 +1,26 @@
 
 import ProfilePic from "./ProfilePic";
 import LikeComponent from "./LikeComponent";
+import Comments from "./Comments.jsx";
 
 //the twit component.
 //the tweet and all its data is shown
 function Twit({data}) {
     return (
+      <div>
       <div className="Twit">
         <div className="userInfo">
-      <ProfilePic gender={data.gender} />
+      <ProfilePic gender={data.userID.gender} />
         <div className="Name">
-          {data.name}
+          {data.userID.user}
         </div>
         </div>
         <div className="Content">
            {data.content}
         </div>
-      <LikeComponent />
+      <LikeComponent likes={data.likes} />
+      </div>
+      <Comments />
       </div>
     );
   }
