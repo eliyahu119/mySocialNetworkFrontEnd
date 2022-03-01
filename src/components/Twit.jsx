@@ -18,9 +18,9 @@ function Twit({data}) {
         <div className="Content">
            {data.content}
         </div>
-      <LikeComponent likes={data.likes} />
+      <LikeComponent likes={data?.likes}  ID={data._id}/>
       </div>
-      <Comments />
+      <Comments comments={data?.commentsID} />
       </div>
     );
   }

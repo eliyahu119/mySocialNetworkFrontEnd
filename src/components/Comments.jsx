@@ -30,9 +30,9 @@ export default function Comments({comments}) {
     const Comment=({comment})=> {
         return (
             <div className='Comment'>
-            <ProfilePic gender={comment.gender} />
+            <ProfilePic gender={comment.userID.gender} />
               <div className="Name">
-                {comment.name}
+                {comment.userID.name}
               </div>
            <div >{comment.content}</div>
            <LikeComponent />
@@ -41,7 +41,7 @@ export default function Comments({comments}) {
       }
   return (
     <div className={"Comment-section"}>
-    {commentsTmp.map((comment)=>(<Comment comment={comment} key={comment.Id}/>))}
+    {comments&&comments.map((comment)=>(<Comment comment={comment} key={comment._id}/>))}
      </div>
   )
 }
