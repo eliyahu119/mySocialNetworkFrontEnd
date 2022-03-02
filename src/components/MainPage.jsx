@@ -42,8 +42,6 @@ function MainPage() {
   
   }, [])
     return (
-   
-    
      <div className="mainPage">
         {/* {Sent?data.map(data=>(<Twit data={data} key={data.Id} />)):(<LoadingElement />)} */}
         {Sent?data.map(data=>(<Twit data={data} key={data._id} />)):(<LoadingElement />)}
