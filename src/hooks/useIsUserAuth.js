@@ -5,6 +5,7 @@ import axios from "axios";
 
 /**
  * check if the use is authintacted with the server
+ * if authintacted send the user to the main page.
  * if not then remove the false token if exist.
  */
 export default function useIsUserAuth() {
@@ -16,9 +17,12 @@ export default function useIsUserAuth() {
             }
         }).then(
          result=>
-          result.data).then(data=>data.isLoggedIn?navigate('/'):null
+          result.data).then(data=>{data.isLoggedIn&&navigate('/')}
           ).catch(
-           e=>{localStorage.getItem('token')&&localStorage.removeItem('token')}     
+           e=>{
+               localStorage.getItem('token')&&localStorage.removeItem('token');
+                console.error(e);
+                }     
          )
      }, [])
 }
