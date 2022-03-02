@@ -2,6 +2,7 @@ import './App.css';
 import MainPage from './components/MainPage';
 import Login from './components/Login'
 import HeadLine from './components/HeadLine';
+import SignIn from './components/SignIn';
 import {
   BrowserRouter,
   Routes,
@@ -14,7 +15,7 @@ function App() {
     <>
     <HeadLine />
       <Routes>
-      {/* <Route exact path="/register" element={<Register />} />  */}
+      <Route exact path="/register" element={<SignIn />} /> 
       <Route exact  path="/login"     element={<Login />}  /> 
       <Route  path="/"   element={<MainPage />}/>
    
@@ -23,5 +24,8 @@ function App() {
 </>
   );
 }
+
+
+
 
 export default App;

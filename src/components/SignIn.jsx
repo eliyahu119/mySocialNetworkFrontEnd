@@ -3,9 +3,7 @@ import { useState } from 'react'
 import useIsUserAuth from '../hooks/useIsUserAuth'
 import axios from 'axios'
 export default function SignIn() {
-  //const navigate = useNavigate();
-  //TODO:: REMOVE COMMENT
-  //useIsUserAuth()
+  useIsUserAuth()
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
@@ -20,11 +18,12 @@ export default function SignIn() {
             break;
         }
         case 'RegisterEmail':{
-            setPassword(e.target.value)
+            setEmail(e.target.value)
+
             break;
         }
         case 'RegisterPassword':{
-            setEmail(e.target.value)
+            setPassword(e.target.value)
 
             break;
         }

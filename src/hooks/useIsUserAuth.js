@@ -5,7 +5,7 @@ import axios from "axios";
 
 /**
  * check if the use is authintacted with the server
- * if authintacted send the user to the main page.
+ * if authintacted send the user to the main page. 
  * if not then remove the false token if exist.
  */
 export default function useIsUserAuth() {
