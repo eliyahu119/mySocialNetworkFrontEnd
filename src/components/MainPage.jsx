@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import HeadLine from "./HeadLine";
 import '../styles/MainPage.css' 
 import axios from "axios";
+import PostWriter from "./PostWriter";
 
 //the main page of the project.
 function MainPage() {
@@ -12,43 +13,50 @@ function MainPage() {
    const [Sent,setSent]=useState(false);
    const navigate = useNavigate();
   useEffect(() => {
-   localStorage.getItem('token')|| navigate('\login') //if there isnt any jwt  
-   axios.get('http://127.0.0.1:80/getData',{
-     headers: {
-        //TODO: REMOVE THAT  and add
-       'x-access-token':localStorage.getItem('token')
-     }
+   getDataFromSerever();
+   //check if data is correct and user info wasnt deleted
+   }, [])
+   const Addpost=(post)=>{
+      SetData([post].concat(data))
    }
-     ).then(result=>result.data)
-          .then ((data) => {
-             SetData(data);
-              setSent(true);  
-          })
-          .catch ((error) => {
-            if(error.response)
-            {
-               if(error.response.status===401)
-               {
-                  localStorage.removeItem('token')
-                  navigate('\login')
-               }
-            } 
-            console.log(error);
-          })
-          
-  //   const timer = setTimeout(() => {
-  //     setSent(true)
-  //   }, 1000);
-  
-  }, [])
+   if(Sent){
+      return (
+         <div className="mainPage">
+            <PostWriter Addpost={Addpost}/>
+            {data.map(data=>(<Twit data={data} key={data._id} />))}
+         </div>
+        );
+      }
     return (
      <div className="mainPage">
-        {/* {Sent?data.map(data=>(<Twit data={data} key={data.Id} />)):(<LoadingElement />)} */}
-        {Sent?data.map(data=>(<Twit data={data} key={data._id} />)):(<LoadingElement />)}
-        {/* {data.map(data=>Twit({data}))} */}
+       <LoadingElement />
      </div>
      
     );
+   function getDataFromSerever() {
+      setSent(false);
+      localStorage.getItem('token') || navigate('\login'); //if there isnt any jwt  
+      axios.get('http://127.0.0.1:80/getData', {
+         headers: {
+            //TODO: REMOVE THAT  and add
+            'x-access-token': localStorage.getItem('token')
+         }
+      }
+      ).then(result => result.data)
+         .then((data) => {
+            SetData(data);
+            setSent(true);
+         })
+         .catch((error) => {
+            if (error.response) {
+               if (error.response.status === 401) {
+                  localStorage.clear();
+                  navigate('\login');
+               }
+            }
+            console.log(error);
+         });
+   }
   }
   
   export default MainPage;
