@@ -19,7 +19,9 @@ export default function Login() {
         }
         axios.post('http://127.0.0.1:80/login',logInfo).then(
             res=>res.data).then(
-            data=>{localStorage.setItem("token",data.token);
+            data=>{
+            localStorage.setItem("token",data.token);
+            localStorage.setItem("userInfo",JSON.stringify(data.userInfo))
             navigate('/')
         }
             ).catch(
@@ -38,7 +40,7 @@ export default function Login() {
     }
     return (
 
-          <form className='formClass' onSubmit={handleLogin} >
+          <form className='LoginFormClass' onSubmit={handleLogin} >
             <input className="userClass" onChange={handleUserChange} required type="user" />
             <input className="passwordClass" onChange={handlePasswordChange} required type="password" />
             <input  className='SubmitClass' type = "submit" value = "Submit" />
