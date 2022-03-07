@@ -20,7 +20,7 @@ function Twit({data}) {
         </div>
       <LikeComponent likes={data?.likes}  ID={data._id}/>
       </div>
-      <Comments comments={data?.commentsID} />
+      <Comments comments={data?.commentsID} postID={data._id} />
       </div>
     );
   }

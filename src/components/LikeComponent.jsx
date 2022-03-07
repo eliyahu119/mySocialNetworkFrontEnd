@@ -19,15 +19,14 @@ if (likes!=null){
 }, [])
 
 const HasClicked=()=>{
-    frontEndclickAction()
-
-    axios.post('http://127.0.0.1:80/like',{postCommentID:ID},
+   
+    axios.post(`http://127.0.0.1:80/${clicked?'rlike':'like'}`,{postCommentID:ID},
     {
         headers:{
             'x-access-token':localStorage.getItem('token')
          }
     }
-    ).then(res=>res.data).then(data=>console.log(data))
+    ).then(res=>res.data).then(frontEndclickAction())
     .catch(e=>console.log(e))
         //     data=>{
         //     localStorage.setItem("token",data.token);

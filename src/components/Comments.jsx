@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProfilePic from "./ProfilePic"
 import"../styles/Comments.css";
 import LikeComponent from './LikeComponent';
-
+import CommentWriter from './CommentWriter';
 
 
 //the comments compoent
-export default function Comments({comments}) {
+export default function Comments({comments,postID}) {
   //the  single comment component
     const Comment=({comment})=> {
         return (
@@ -22,8 +22,10 @@ export default function Comments({comments}) {
       }
   return (
     <div className={"Comment-section"}>
-    {comments&&comments.map((comment)=>(<Comment comment={comment} key={comment._id}/>))}
-     </div>
+    <CommentWriter postID={postID} />
+    {comments&&
+     comments.map((comment)=>(<Comment comment={comment} key={comment._id}/>))}
+    </div>
   )
 }
 
