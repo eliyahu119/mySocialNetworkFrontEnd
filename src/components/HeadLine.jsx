@@ -31,7 +31,7 @@ const LogOut=()=>{
     navigate('/login')
   }
   return(
-    <button className='font-bold ' onClick={logOutHandler}>
+    <button className='font-bold hover:text-gray-600 ' onClick={logOutHandler}>
     {'LogOut'}
     </button>
   )
@@ -39,7 +39,7 @@ const LogOut=()=>{
 
 const LogNavLink=({children,to})=>{
   return(
-      <NavLink  className={ 'hover:text-green-700 text-green-500'} to={to}>
+      <NavLink  className={ ' hover:text-gray-600'} to={to}>
        {children}
       </NavLink>
   )
@@ -50,7 +50,7 @@ const LogNavLink=({children,to})=>{
   return (
      <nav className={"  bg-sky-200  bg-opacity-90 "}>
        <div className={' mx-auto   px-16 items-center font-bold fontsi text-3xl flex justify-between'}>
-      <div className='space-x-4 flex items-center'>  { /*general conteiner */ }
+       <div className='space-x-4 flex items-center'>  { /*general conteiner */ }
       <img src={webSiteLogo} className={"flex max-h-24"} alt={"logo"} />
       <div className='flex space-x-4  text-amber-600 '>
        <InfoNavLink  to={'/'} data={'Home'}>
@@ -63,15 +63,15 @@ const LogNavLink=({children,to})=>{
        <FaFileContract/>
       </InfoNavLink>
       </div>
-      </div>
-     <div className='flex  space-x-4 items-center '> { /*the login and signin div */ }
+       </div>
+       <div className='flex  space-x-4 items-center '> { /*the login and signin div */ }
       {!localStorage.getItem("token")?(
         <>
         <LogNavLink  to={'/Login'}>
-        {'login'}
+        {'Login'}
         </LogNavLink>
         <LogNavLink  className={''} to={'/Register'}>
-        {'signIn'}
+        {'SignIn'}
         </LogNavLink>
         </>
       )
