@@ -7,7 +7,9 @@ import {setCommentContext} from '../contex/setCommentContext'
 
 
 /**
- * post writer
+ * comment writer
+ * writes the comment than sent it to the server and then display it on the page
+ *  * using the context in the main page
  * @returns 
  */
 export default function CommentWriter({postID }) {
@@ -23,7 +25,7 @@ const [content, setContent] = useState('')
  */
  const sendcomment=(e)=>{
    if(content.length<10){
-    alert("use more than 10 charcters") //put here the cool alert
+     alert("use more than 10 charcters") //put here the cool alert
      return 
    }
   axios.post('http://127.0.0.1:80/comment',{content,postID},
@@ -35,10 +37,11 @@ const [content, setContent] = useState('')
   ).then(res=>res.data).then(data=>
  {
   console.log(data)
-  AddComment(postID,data.data)
+  AddComment(postID,data.data)  //the context from main page
+  setContent('')
 })
   .catch(e=>console.log(e))
-  setContent('')
+  
  }
   return (
     <div className='CommentWriterClass'>

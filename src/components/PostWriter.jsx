@@ -5,7 +5,9 @@ import '../styles/postWriter.css'
 
 
 /**
- * post writer
+ * Post writer
+ * writes the Post than sent it to the server and then display it on the page
+
  * @returns 
  */
 export default function PostWriter({Addpost}) {
