@@ -46,6 +46,7 @@ const LogNavLink=({children,to})=>{
 }
 
 
+
   return (
      <nav className={"  bg-sky-200  bg-opacity-90 "}>
        <div className={' mx-auto   px-16 items-center font-bold fontsi text-3xl flex justify-between'}>
@@ -64,13 +65,18 @@ const LogNavLink=({children,to})=>{
       </div>
       </div>
      <div className='flex  space-x-4 items-center '> { /*the login and signin div */ }
-       <LogNavLink  to={'/Login'}>
-       {'login'}
-       </LogNavLink>
-       <LogNavLink  className={''} to={'/Register'}>
-       {'signIn'}
-      </LogNavLink>
-      <LogOut />
+      {!localStorage.getItem("token")?(
+        <>
+        <LogNavLink  to={'/Login'}>
+        {'login'}
+        </LogNavLink>
+        <LogNavLink  className={''} to={'/Register'}>
+        {'signIn'}
+        </LogNavLink>
+        </>
+      )
+      :(<LogOut />)
+      }
      </div>
     </div>
   </nav>

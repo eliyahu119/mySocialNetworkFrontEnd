@@ -20,9 +20,8 @@ export default function useIsUserAuth() {
           result.data).then(data=>{data.isLoggedIn&&navigate('/')}
           ).catch(
            e=>{
-               localStorage.getItem('token')&&localStorage.removeItem('token');
-                console.error(e);
-                }     
+               localStorage.clear();
+            }     
          )
      }, [])
 }
