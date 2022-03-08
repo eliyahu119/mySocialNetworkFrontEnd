@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useIsUserAuth from "../hooks/useIsUserAuth";
-
+import { useAlert } from 'react-alert'
 export default function Login() {
     const navigate = useNavigate();
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
-
+    const alert=useAlert()
+    
 
 
     const handleLogin = (event) => {
@@ -26,8 +27,10 @@ export default function Login() {
         }
             ).catch(
                 //TODO:: put here some kind of alert error to inform the user 
-                (e)=>console.log(e)
-                )
+                (e)=>{
+                   e.response&&e.response.data&&alert.show(e.response.data.message)
+                }
+            )
     }
 
    useIsUserAuth();
