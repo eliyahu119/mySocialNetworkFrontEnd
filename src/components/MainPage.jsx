@@ -7,6 +7,7 @@ import '../styles/MainPage.css'
 import axios from "axios";
 import PostWriter from "./PostWriter";
 import {setCommentContext} from '../contex/setCommentContext'
+import {reverseArr} from '../helpFunctions/utils.js'
 //the main page of the project.
 function MainPage() {
    const [data,SetData] = useState();
@@ -14,17 +15,15 @@ function MainPage() {
    const navigate = useNavigate();
 
 
-function reverseArr(input) {
-   var ret = new Array;
-   for(var i = input.length-1; i >= 0; i--) {
-       ret.push(input[i]);
-   }
-   return ret;
-}
-
   useEffect(() => {
+   console.log('used')
    getDataFromSerever();
    //check if data is correct and user info wasnt deleted
+
+   return ()=>{ 
+      setSent(false);
+      SetData([])
+   }
    }, [])
    /**
     * 
@@ -58,7 +57,7 @@ function reverseArr(input) {
          
          <div className="mainPage">
             <PostWriter Addpost={Addpost}/>
-         <setCommentContext.Provider value={addComment}>
+            <setCommentContext.Provider value={addComment}>
             {data.map(data=>(<Twit data={data} key={data._id} />))}
          </setCommentContext.Provider>
          </div>
@@ -66,7 +65,9 @@ function reverseArr(input) {
       }
     return (
      <div className="mainPage">
+        <div className="flex  justify-center m-0 align-middle ">
        <LoadingElement />
+        </div>
      </div>
      
     );
@@ -75,8 +76,7 @@ function reverseArr(input) {
      * get all posts comments and likes from the server
      */
    function getDataFromSerever() {
-      setSent(false);
-      localStorage.getItem('token') || navigate('\login'); //if there isnt any jwt  
+     localStorage.getItem('token') || navigate('/login'); //if there isnt any jwt  
       axios.get('http://127.0.0.1:80/getData', {
          headers: {
             //TODO: REMOVE THAT  and add

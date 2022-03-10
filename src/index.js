@@ -8,9 +8,10 @@ import {
 } from 'react-router-dom';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
+import utils from './helpFunctions/utils.js'
 
-
-
+//ini the utils
+utils.ini()
 // optional configuration
 const options = {
   // you can also just use 'bottom center'

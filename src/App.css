@@ -3,7 +3,9 @@
   --imgSize:50px;
   --second-color: #ff7;
 }
-
+body{
+@apply  bg-pink-50
+}
 
 .Twit{
   border:2px solid #dfdfdf ;
@@ -14,6 +16,7 @@
   background-color:#f5f8fd;
 }
 .Name{
+  
   /* position: relative; */
   display: inline-block;
   /* left:55px; */
@@ -25,9 +28,12 @@
   
 
 }
+.userinfo{
+  display:flex;
+}
 
 .imagediv{
-  display: inline-block;
+  display: inline-flex;
   background-color: #4251db34;
   border-radius: 50%;
   width:50px;
@@ -35,7 +41,6 @@
   vertical-align: middle;
 }
 .imageSource{
-  display: flex;
   margin-left: auto;
   margin-right: auto;
   max-width: 80%;
