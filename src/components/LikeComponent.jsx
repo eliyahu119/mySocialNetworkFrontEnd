@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios  from "axios";
-import"../styles/LikeComponent.css";
+//import"../styles/LikeComponent.css";
+import"../styles/like.css";
+
 
 //the like component
 const LikeComponent=({likes,ID})=>{
@@ -45,7 +47,17 @@ const frontEndclickAction=()=>{
     setClicked(!clicked);
 }
 return (
-    <button onClick={HasClicked} className={`LikeComponent ${clicked?"ClikedLike":""} `}>{countlikes}</button>
+    <div>
+    <p className="text-sm text-center  text-gray-400 w-20">{`${countlikes} ❤`}</p>
+    {/* <button onClick={HasClicked} className={`LikeComponent ${clicked?"ClikedLike":""} `}>{countlikes}</button> */}
+    <button onClick={HasClicked} className={`like-button ${clicked?'liked':''}`} id="wow">
+        <span className='like-icon'>
+          <div className='heart-animation-1'></div>
+          <div className='heart-animation-2'></div>
+        </span>
+        Like
+      </button>
+    </div>
 );
 }
 
