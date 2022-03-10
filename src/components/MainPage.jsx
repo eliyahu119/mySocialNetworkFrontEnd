@@ -7,6 +7,7 @@ import axios from "axios";
 import PostWriter from "./PostWriter";
 import {setCommentContext} from '../contex/setCommentContext'
 import {reverseArr} from '../helpFunctions/utils.js'
+
 //the main page of the project.
 function MainPage() {
    const [data,SetData] = useState();
@@ -15,11 +16,9 @@ function MainPage() {
 
 
   useEffect(() => {
-   console.log('used')
    localStorage.getItem('token') || navigate('/login'); //if there isnt any jwt  
       axios.get('http://127.0.0.1:80/getData', {
          headers: {
-            //TODO: REMOVE THAT  and add
             'x-access-token': localStorage.getItem('token')
          }
       }

@@ -3,7 +3,7 @@ import ProfilePic from './ProfilePic'
 import axios from 'axios'
 import '../styles/postWriter.css' 
 import {setCommentContext} from '../contex/setCommentContext'
-
+import { AiOutlineSend} from "react-icons/ai"
 
 
 /**
@@ -51,16 +51,21 @@ const buttonRef=useRef()
   )
 }
   return (
-    <div className='CommentWriterClass'>
+    <div className='p-2 flex items-center'>
     <ProfilePic gender={JSON.parse(localStorage['userInfo']).gender}/>
-    <input className='CommentInputClass' 
+
+    <input className='ml-3 pl-2 w-80  pb-2  pt-2 rounded-2xl bg-slate-200 ' 
+    placeholder='write comment....'
     value={content} 
     maxLength='60'
     minLength={10} 
     onChange={onChangeContent}
     required
     id="" />
-    <button ref={buttonRef} onClick={sendcomment}>send comment</button>
+    <button className=' hover:text-indigo-900 text-indigo-500' ref={buttonRef} onClick={sendcomment}>< AiOutlineSend  size={25}/></button>
+  
+    
+    
     </div>
   )
 }

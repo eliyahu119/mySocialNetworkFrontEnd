@@ -7,7 +7,7 @@ import Comments from "./Comments.jsx";
 //the tweet and all its data is shown
 function Twit({data}) {
     return (
-      <div className="rounded-3xl  bg-orange-50  border-orange-300 border-2  ">
+      <div className="rounded-3xl  bg-orange-50  border-orange-300 border-2   shadow-orange-100  ">
       <div className="   pb-2 pl-4  bg-orange-100    rounded-3xl ">
         <div className="rounded-xl max-w-sm p-2    ">
       <ProfilePic gender={data.userID.gender} />
