@@ -2,7 +2,6 @@ import Twit from "./Twit";
 import {useState,useEffect} from "react";
 import LoadingElement from "./LoadingElement";
 import { useNavigate } from "react-router-dom";
-import HeadLine from "./HeadLine";
 import '../styles/MainPage.css' 
 import axios from "axios";
 import PostWriter from "./PostWriter";
@@ -17,14 +16,38 @@ function MainPage() {
 
   useEffect(() => {
    console.log('used')
-   getDataFromSerever();
-   //check if data is correct and user info wasnt deleted
+   localStorage.getItem('token') || navigate('/login'); //if there isnt any jwt  
+      axios.get('http://127.0.0.1:80/getData', {
+         headers: {
+            //TODO: REMOVE THAT  and add
+            'x-access-token': localStorage.getItem('token')
+         }
+      }
+      ).then(result => result.data)
+         .then((data) => {
+            SetData(reverseArr(data).map(
+               (item)=>{
+                  item.commentsID&&(item.commentsID=reverseArr(item.commentsID))
+                  return item
+               }
+               ))
+            setSent(true);
+         })
+         .catch((error) => {
+            if (error.response) {
+               if (error.response.status === 401) {
+                  localStorage.clear();
+                  navigate('/login');
+               }
+            }
+            console.log(error);
+         });
 
    return ()=>{ 
       setSent(false);
       SetData([])
    }
-   }, [])
+   }, [navigate])
    /**
     * 
     * @param {*} post 
@@ -41,7 +64,7 @@ function MainPage() {
    const addComment=(postID,newComment)=>{
       SetData(data.map(
          post=>{
-               if(post._id==postID)
+               if(post._id===postID)
                {
                 post.commentsID=post.commentsID?[newComment].concat(post.commentsID):[newComment]     
                 return post
@@ -72,37 +95,7 @@ function MainPage() {
      
     );
     
-    /**
-     * get all posts comments and likes from the server
-     */
-   function getDataFromSerever() {
-     localStorage.getItem('token') || navigate('/login'); //if there isnt any jwt  
-      axios.get('http://127.0.0.1:80/getData', {
-         headers: {
-            //TODO: REMOVE THAT  and add
-            'x-access-token': localStorage.getItem('token')
-         }
-      }
-      ).then(result => result.data)
-         .then((data) => {
-            SetData(reverseArr(data).map(
-               (item)=>{
-                  item.commentsID&&(item.commentsID=reverseArr(item.commentsID))
-                  return item
-               }
-               ))
-            setSent(true);
-         })
-         .catch((error) => {
-            if (error.response) {
-               if (error.response.status === 401) {
-                  localStorage.clear();
-                  navigate('\login');
-               }
-            }
-            console.log(error);
-         });
-   }
+
   }
   
   export default MainPage;

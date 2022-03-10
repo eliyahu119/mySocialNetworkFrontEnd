@@ -28,8 +28,10 @@ export default function Comments({comments,postID}) {
   return (
     <div className={"Comment-section"}>
     <CommentWriter postID={postID} />
+    <div className=' block max-w-xl m-auto justify-center align-middle'>
     {comments&&
      comments.map((comment)=>(<Comment comment={comment} key={comment._id}/>))}
+     </div>
     </div>
   )
 }
