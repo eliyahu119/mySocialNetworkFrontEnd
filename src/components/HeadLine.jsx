@@ -48,8 +48,8 @@ export default function HeadLine() {
 
 
   return (
-    <nav className={"  bg-sky-200  bg-opacity-90 "}>
-      <div className={' mx-auto   px-16 items-center font-bold fontsi text-3xl flex justify-between'}>
+    <nav className={"  bg-pink-200 mb-20 bg-opacity-90 "}>
+      <div className={' mx-auto   lg:px-16 items-center font-bold fontsi text-2xl flex justify-between'}>
         <div className='space-x-4 flex items-center'>  { /*general conteiner */}
           <img src={webSiteLogo} className={"flex max-h-24"} alt={"logo"} />
           <div className='flex space-x-4  text-amber-600 '>

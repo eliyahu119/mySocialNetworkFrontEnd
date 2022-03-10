@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, {useRef, useContext, useState } from 'react'
 import ProfilePic from './ProfilePic'
 import axios from 'axios'
 import '../styles/postWriter.css' 
@@ -15,7 +15,7 @@ import {setCommentContext} from '../contex/setCommentContext'
 export default function CommentWriter({postID }) {
 const AddComment=useContext(setCommentContext)
 const [content, setContent] = useState('')
-
+const buttonRef=useRef()
  const onChangeContent =(e)=>{  
    setContent(e.target.value)
  }
@@ -24,11 +24,13 @@ const [content, setContent] = useState('')
  * @param {} e 
  */
  const sendcomment=(e)=>{
+
    if(content.length<10){
      alert("use more than 10 charcters") //put here the cool alert
      return 
    }
-  axios.post('http://127.0.0.1:80/comment',{content,postID},
+   buttonRef.current.disabled = true;
+   axios.post('http://127.0.0.1:80/comment',{content,postID},
   {
       headers:{
           'x-access-token':localStorage.getItem('token')
@@ -40,9 +42,14 @@ const [content, setContent] = useState('')
   AddComment(postID,data.data)  //the context from main page
   setContent('')
 })
-  .catch(e=>console.log(e))
-  
- }
+  .catch(
+    e=>console.log(e))
+    .finally(
+    ()=>{
+          buttonRef.current.disabled = false;
+        }
+  )
+}
   return (
     <div className='CommentWriterClass'>
     <ProfilePic gender={JSON.parse(localStorage['userInfo']).gender}/>
@@ -53,7 +60,7 @@ const [content, setContent] = useState('')
     onChange={onChangeContent}
     required
     id="" />
-    <button onClick={sendcomment}>send post</button>
+    <button ref={buttonRef} onClick={sendcomment}>send comment</button>
     </div>
   )
 }

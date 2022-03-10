@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useRef } from 'react'
 import ProfilePic from './ProfilePic'
 import axios from 'axios'
 import '../styles/postWriter.css' 
@@ -12,6 +12,7 @@ import '../styles/postWriter.css'
  */
 export default function PostWriter({Addpost}) {
 const [content, setContent] = useState('')
+const buttonRef=useRef()
 
  const onChangeContent =(e)=>{  
    setContent(e.target.value)
@@ -25,6 +26,7 @@ const [content, setContent] = useState('')
     alert("use more than 10 charcters") //put here the cool alert
      return 
    }
+   buttonRef.current.disabled = true;
   axios.post('http://127.0.0.1:80/post',{content},
   {
       headers:{
@@ -33,6 +35,9 @@ const [content, setContent] = useState('')
   }
   ).then(res=>res.data).then(data=>Addpost(data))
   .catch(e=>console.log(e))
+  .finally(
+    ()=>{buttonRef.current.disabled = false;}
+  )
   setContent('')
  }
   return (
@@ -45,7 +50,7 @@ const [content, setContent] = useState('')
     onChange={onChangeContent}
     required
     id="" />
-    <button onClick={sendpost}>send post</button>
+    <button ref={buttonRef} onClick={sendpost}>send post</button>
     </div>
   )
 }
