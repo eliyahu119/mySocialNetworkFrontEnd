@@ -8,11 +8,14 @@ import { FaFileContract } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 
-
+/**
+ *the navbar of the project
+ * @returns 
+ */
 export default function HeadLine() {
   const navigate = useNavigate()
   /**
-   * for the stylyd links
+   * for the stylyd  Info links
    */
   const InfoNavLink = ({ children, to, data }) => {
     return (

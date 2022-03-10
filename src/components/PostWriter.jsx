@@ -2,6 +2,7 @@ import React, { useState,useRef } from 'react'
 import ProfilePic from './ProfilePic'
 import axios from 'axios'
 import '../styles/postWriter.css' 
+import { AiOutlineSend} from "react-icons/ai"
 
 
 /**
@@ -41,16 +42,17 @@ const buttonRef=useRef()
   setContent('')
  }
   return (
-    <div className='PostClass'>
+    <div className=' mt-5 bg-slate-200 p-10 rounded-3xl flex items-center'>
     <ProfilePic gender={JSON.parse(localStorage['userInfo']).gender}/>
-    <input className='postInputClass' 
+    <input className=' p-4 rounded-3xl w-7/12  m-2 text-xl' 
     value={content} 
     maxLength='60'
     minLength={10} 
     onChange={onChangeContent}
     required
+    placeholder={`Write something as ${JSON.parse(localStorage['userInfo']).user}...`}
     id="" />
-    <button ref={buttonRef} onClick={sendpost}>send post</button>
+    <button  className=' hover:text-indigo-900 text-indigo-500' ref={buttonRef} onClick={sendpost}>< AiOutlineSend  size={50}/></button>
     </div>
   )
 }

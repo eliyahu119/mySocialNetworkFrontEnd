@@ -18,7 +18,7 @@ export default function Comments({comments,postID}) {
               <div className=' text-gray-500  text-xs'> {/** the date conteiner */}
           {new Date(comment.date).formatedDate()} 
         </div>
-            <div className=' text-sm p-3' >
+            <div className=' text-base p-3' >
              {comment.content}
             </div>
            <LikeComponent likes={comment.likes} ID={comment._id} />
