@@ -85,7 +85,7 @@ const MaipageClasses=''
         );
       }
     return (
-     <div className={'lg:px-32  lg:max-w-6xl px-3 space-y-6 bg-pink-50 block m-auto shadow-2xl'}>
+     <div className={'lg:px-32  lg:max-w-6xl px-3 space-y-6 bg-pink-50 block m-auto '}>
         <div className="flex  justify-center m-0 align-middle ">
        <LoadingElement />
         </div>

@@ -50,10 +50,10 @@ export default function HeadLine() {
 
 
   return (
-    <nav className={"  bg-pink-100 mb-20 bg-opacity-90 shadow-lg shadow-purple-50 "}> {/*the navbar*/ }
-      <div className={' mx-auto  bg-pink-100   lg:px-16 items-center font-bold fontsi text-2xl flex justify-between'}>
-        <div className='space-x-4 flex items-center'>  { /*general conteiner */}
-          <img src={webSiteLogo} className={"max-h-24"} alt={"logo"} />
+    <nav className={"  bg-pink-100 mb-20 bg-opacity-90 shadow-lg shadow-purple-50 flex  "}> {/*the navbar*/ }
+    <img src={webSiteLogo} className={"max-h-24 max-w-sm inline-flex"} alt={"logo"} />
+      <div className={'   bg-pink-100 w-full  items-center font-bold fontsi text-2xl flex justify-between '}>
+        <div className='flex space-x-4  items-center'>  { /*general conteiner */}
           <div className='flex space-x-4  text-orange-400 '>
             <InfoNavLink to={'/'} data={'Home'}>
               <GoHome />
@@ -66,7 +66,7 @@ export default function HeadLine() {
             </InfoNavLink>
           </div>
         </div>
-        <div className='flex  space-x-4 items-center  '> { /*the login and signin div */}
+        <div className='flex  space-x-4 items-center '> { /*the login and signin div */}
           {!localStorage.getItem("token") ? (
             <>
               <LogNavLink to={'/Login'}>
