@@ -2,7 +2,6 @@ import Twit from "./Twit";
 import {useState,useEffect} from "react";
 import LoadingElement from "./LoadingElement";
 import { useNavigate } from "react-router-dom";
-import '../styles/MainPage.css' 
 import axios from "axios";
 import PostWriter from "./PostWriter";
 import {setCommentContext} from '../contex/setCommentContext'
@@ -14,7 +13,7 @@ function MainPage() {
    const [Sent,setSent]=useState(false);
    const navigate = useNavigate();
 
-
+const MaipageClasses=''
   useEffect(() => {
    localStorage.getItem('token') || navigate('/login'); //if there isnt any jwt  
       axios.get('http://127.0.0.1:80/getData', {
@@ -77,7 +76,7 @@ function MainPage() {
    if(Sent){
       return (
          
-         <div className="mainPage">
+         <div className={'lg:px-32  lg:max-w-6xl px-3 space-y-6 bg-pink-50 block m-auto shadow-2xl'}>
             <PostWriter Addpost={Addpost}/>
             <setCommentContext.Provider value={addComment}>
             {data.map(data=>(<Twit data={data} key={data._id} />))}
@@ -86,7 +85,7 @@ function MainPage() {
         );
       }
     return (
-     <div className="mainPage">
+     <div className={'lg:px-32  lg:max-w-6xl px-3 space-y-6 bg-pink-50 block m-auto shadow-2xl'}>
         <div className="flex  justify-center m-0 align-middle ">
        <LoadingElement />
         </div>

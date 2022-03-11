@@ -1,5 +1,4 @@
 import React from 'react'
-import "../styles/HeadLine.css";
 import webSiteLogo from "../images/logo.png";
 import { NavLink } from 'react-router-dom'
 import { GoHome } from "react-icons/go";
@@ -7,7 +6,7 @@ import { BsQuestionLg } from "react-icons/bs";
 import { FaFileContract } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-
+const horizental= ''
 /**
  *the navbar of the project
  * @returns 
@@ -19,7 +18,7 @@ export default function HeadLine() {
    */
   const InfoNavLink = ({ children, to, data }) => {
     return (
-      <NavLink className={'hover:text-orange-900  items-center flex space-x-1'} to={to}>
+      <NavLink className={'hover:text-orange-600  shadow-md shadow-orange-200  items-center flex space-x-1'} to={to}>
         {children}
         {data}
       </NavLink>
@@ -34,7 +33,7 @@ export default function HeadLine() {
       navigate('/login')
     }
     return (
-      <button className='font-bold hover:text-gray-600 ' onClick={logOutHandler}>
+      <button className='font-bold hover:text-gray-600 shadow-md' onClick={logOutHandler}>
         {'LogOut'}
       </button>
     )
@@ -42,7 +41,7 @@ export default function HeadLine() {
 
   const LogNavLink = ({ children, to }) => {
     return (
-      <NavLink className={' hover:text-gray-600'} to={to}>
+      <NavLink className={' hover:text-gray-600 shadow-md'} to={to}>
         {children}
       </NavLink>
     )
@@ -51,11 +50,11 @@ export default function HeadLine() {
 
 
   return (
-    <nav className={"  bg-pink-200 mb-20 bg-opacity-90 "}>
-      <div className={' mx-auto   lg:px-16 items-center font-bold fontsi text-2xl flex justify-between'}>
+    <nav className={"  bg-pink-100 mb-20 bg-opacity-90 shadow-lg shadow-purple-50 "}> {/*the navbar*/ }
+      <div className={' mx-auto  bg-pink-100   lg:px-16 items-center font-bold fontsi text-2xl flex justify-between'}>
         <div className='space-x-4 flex items-center'>  { /*general conteiner */}
-          <img src={webSiteLogo} className={"flex max-h-24"} alt={"logo"} />
-          <div className='flex space-x-4  text-amber-600 '>
+          <img src={webSiteLogo} className={"max-h-24"} alt={"logo"} />
+          <div className='flex space-x-4  text-orange-400 '>
             <InfoNavLink to={'/'} data={'Home'}>
               <GoHome />
             </InfoNavLink>
@@ -67,7 +66,7 @@ export default function HeadLine() {
             </InfoNavLink>
           </div>
         </div>
-        <div className='flex  space-x-4 items-center '> { /*the login and signin div */}
+        <div className='flex  space-x-4 items-center  '> { /*the login and signin div */}
           {!localStorage.getItem("token") ? (
             <>
               <LogNavLink to={'/Login'}>

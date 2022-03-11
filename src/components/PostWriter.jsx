@@ -1,7 +1,6 @@
 import React, { useState,useRef } from 'react'
 import ProfilePic from './ProfilePic'
 import axios from 'axios'
-import '../styles/postWriter.css' 
 import { AiOutlineSend} from "react-icons/ai"
 
 
@@ -42,7 +41,7 @@ const buttonRef=useRef()
   setContent('')
  }
   return (
-    <div className=' mt-5 bg-slate-200 p-10 rounded-3xl flex items-center'>
+    <div className=' mt-5 bg-slate-200 p-10 rounded-3xl flex items-center shadow-md'>
     <ProfilePic gender={JSON.parse(localStorage['userInfo']).gender}/>
     <input className=' p-4 rounded-3xl w-7/12  m-2 text-xl' 
     value={content} 

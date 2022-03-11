@@ -1,7 +1,6 @@
 import React, {useRef, useContext, useState } from 'react'
 import ProfilePic from './ProfilePic'
 import axios from 'axios'
-import '../styles/postWriter.css' 
 import {setCommentContext} from '../contex/setCommentContext'
 import { AiOutlineSend} from "react-icons/ai"
 

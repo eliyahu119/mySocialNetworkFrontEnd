@@ -1,4 +1,0 @@
-/*TODO NEED TO Edjust the text size to the size of the website*/
-.mainPage {
- @apply lg:px-32  lg:max-w-6xl px-3 space-y-4 bg-pink-50 block m-auto
-  }
