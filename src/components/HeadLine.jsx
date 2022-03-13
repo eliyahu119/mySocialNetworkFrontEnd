@@ -1,12 +1,13 @@
-import React from 'react'
+import {useState} from 'react'
 import webSiteLogo from "../images/logo.png";
 import { NavLink } from 'react-router-dom'
 import { GoHome } from "react-icons/go";
 import { BsQuestionLg } from "react-icons/bs";
 import { FaFileContract } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import '../styles/HeadLine.css'
+import {MdDoubleArrow} from 'react-icons/md'
 
-const horizental= ''
 /**
  *the navbar of the project
  * @returns 
@@ -18,7 +19,7 @@ export default function HeadLine() {
    */
   const InfoNavLink = ({ children, to, data }) => {
     return (
-      <NavLink className={'hover:text-orange-600  shadow-md shadow-orange-200  items-center flex space-x-1'} to={to}>
+      <NavLink onClick={()=>{SetOpen(false)}} className={'InfoLinks'} to={to}>
         {children}
         {data}
       </NavLink>
@@ -31,9 +32,10 @@ export default function HeadLine() {
     const logOutHandler = (e) => {
       localStorage.clear();
       navigate('/login')
+      SetOpen(false)
     }
     return (
-      <button className='font-bold hover:text-gray-600 shadow-md' onClick={logOutHandler}>
+      <button className='SignInLoginLinks' onClick={logOutHandler}>
         {'LogOut'}
       </button>
     )
@@ -41,20 +43,27 @@ export default function HeadLine() {
 
   const LogNavLink = ({ children, to }) => {
     return (
-      <NavLink className={' hover:text-gray-600 shadow-md'} to={to}>
+      <NavLink className='SignInLoginLinks' to={to}>
         {children}
       </NavLink>
     )
   }
-
-
+   const ToggleOpen=()=>{
+    SetOpen(!open);
+   }
+  const [open,SetOpen]=useState(false);
 
   return (
-    <nav className={"  bg-pink-100 mb-20 bg-opacity-90 shadow-lg shadow-purple-50 flex  "}> {/*the navbar*/ }
-    <img src={webSiteLogo} className={"max-h-24 max-w-sm inline-flex"} alt={"logo"} />
-      <div className={'   bg-pink-100 w-full  items-center font-bold fontsi text-2xl flex justify-between '}>
-        <div className='flex space-x-4  items-center'>  { /*general conteiner */}
-          <div className='flex space-x-4  text-orange-400 '>
+    <nav className={"headLine"}> {/*the navbar*/ }
+    
+
+    <img src={webSiteLogo} className={"ImageConteiner"} alt={"logo"} />
+     <button onClick={ToggleOpen} className='expendButton'>
+     <MdDoubleArrow className='arrow' size={60} />
+     </button>
+      <div  className={`linksConteiner ${open?'open':''}`}>
+        <div className='InfoLinksConteiner'>  { /*general conteiner */}
+        
             <InfoNavLink to={'/'} data={'Home'}>
               <GoHome />
             </InfoNavLink>
@@ -64,9 +73,9 @@ export default function HeadLine() {
             <InfoNavLink to={'/terms'} data={'Terms'}>
               <FaFileContract />
             </InfoNavLink>
-          </div>
+     
         </div>
-        <div className='flex  space-x-4 items-center '> { /*the login and signin div */}
+        <div className='LoglinksConteiner'> { /*the login and signin div */}
           {!localStorage.getItem("token") ? (
             <>
               <LogNavLink to={'/Login'}>
@@ -81,6 +90,7 @@ export default function HeadLine() {
           }
         </div>
       </div>
+    
     </nav>
   )
 }

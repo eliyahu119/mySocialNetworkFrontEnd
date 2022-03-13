@@ -1,0 +1,68 @@
+.headLine{
+    @apply bg-pink-100 mb-20 bg-opacity-90 shadow-lg shadow-purple-50 flex ;
+}
+.SignInLoginLinks{
+    @apply font-bold hover:text-gray-600 shadow-md;
+}
+.InfoLinks{
+    @apply text-orange-400   hover:text-orange-600  shadow-md shadow-orange-200  items-center flex space-x-1;
+}
+
+.InfoLinksConteiner{
+    @apply flex space-x-4  items-center;
+}
+
+.LoglinksConteiner {
+    @apply flex space-x-4  items-center;
+
+}
+.linksConteiner {
+    @apply  w-full  items-center font-bold text-2xl flex justify-between px-16;
+
+}
+
+.ImageConteiner {
+    @apply max-h-24 max-w-sm inline-flex z-20;
+}
+.expendButton{
+    @apply hidden;
+}
+
+
+@media only screen and (max-width: 800px ) {
+.headLine{
+        @apply relative  z-20
+   }
+
+.linksConteiner{
+   @apply  fixed flex-col  py-40  space-x-0    bg-pink-100 opacity-95  z-10 h-full w-full pointer-events-none ;
+   clip-path:circle(100px at 90% -20%);
+   -webkit-clip-path:circle(100px at 90% -20%);
+   transition: all 1.5s ease-out;
+
+}   
+
+
+.linksConteiner.open{
+    @apply pointer-events-auto;
+    clip-path:circle(1200px at 90% 10%);
+    -webkit-clip-path:circle(1200 at 90% 10%);
+    transition: all 1.5s ease-out;
+ }   
+.expendButton {
+        @apply inline-block   z-20  absolute  -translate-y-1/2  text-orange-500 opacity-50 ;
+        right:5%;
+        top:50%;
+      } 
+      .arrow{
+        @apply  rotate-135   opacity-75 
+    }
+   
+
+   .InfoLinksConteiner{
+       @apply  flex-col space-y-10 space-x-0 ;
+   }
+   
+
+}
+

@@ -3,7 +3,9 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {rotate: {
+      '135': '135deg',
+    }},
   },
   plugins: [],
 }

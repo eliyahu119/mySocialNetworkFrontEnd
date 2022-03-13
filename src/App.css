@@ -3,12 +3,6 @@
   --imgSize:50px;
   --second-color: #ff7;
 }
-body{
-@apply  bg-pink-50
-}
-
-
-
 
 .imagediv{
   display: inline-flex;
