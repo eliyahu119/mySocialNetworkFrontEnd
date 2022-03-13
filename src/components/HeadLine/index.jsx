@@ -1,15 +1,15 @@
 import {useState} from 'react'
-import webSiteLogo from "../images/logo.png";
+import webSiteLogo from "../../images/logo.png";
 import { NavLink } from 'react-router-dom'
 import { GoHome } from "react-icons/go";
 import { BsQuestionLg } from "react-icons/bs";
 import { FaFileContract } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import '../styles/HeadLine.css'
+import '../../styles/HeadLine.css'
 import {MdDoubleArrow} from 'react-icons/md'
 
 /**
- *the navbar of the project
+ *the navbar of the project ( responsive to web)
  * @returns 
  */
 export default function HeadLine() {
@@ -48,11 +48,12 @@ export default function HeadLine() {
       </NavLink>
     )
   }
-   const ToggleOpen=()=>{
-    SetOpen(!open);
-   }
+  const ToggleOpen=()=>{
+  SetOpen(!open);
+}
   const [open,SetOpen]=useState(false);
-
+ 
+   
   return (
     <nav className={"headLine"}> {/*the navbar*/ }
     
