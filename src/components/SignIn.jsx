@@ -14,7 +14,7 @@ export default function SignIn() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
     const [gender, setGender] = useState(1)
-
+    const alert=useAlert();
    
 
 
@@ -22,7 +22,7 @@ export default function SignIn() {
 
 
 const handleRegister=(event)=>{
-  const alert=useAlert();
+
     event.preventDefault();
     const SignInfo = {
         password,
