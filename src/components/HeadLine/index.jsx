@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import webSiteLogo from "../../images/logo.png";
 import { NavLink } from 'react-router-dom'
 import { GoHome } from "react-icons/go";
 import { BsQuestionLg } from "react-icons/bs";
@@ -44,7 +43,11 @@ export default function HeadLine() {
 
   return (
     <nav className={`headLine  ${open?'open':''} `}> {/*the navbar*/ }
-    <img src={webSiteLogo} className={"ImageConteiner"} alt={"logo"} />
+
+
+    <i className='z-20'>
+        <h1 className="ImageConteiner">MYSN</h1>
+    </i>
      <button onClick={ToggleOpen} className='expendButton'>
      <MdDoubleArrow className='arrow' size={60} />
      </button>
