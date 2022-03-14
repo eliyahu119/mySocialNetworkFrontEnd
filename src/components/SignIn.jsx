@@ -1,7 +1,13 @@
+import { GenderInput } from './inputs/GenderInput';
+import { EmailInput } from './inputs/EmailInput';
 
 import { useState } from 'react'
 import useIsUserAuth from '../hooks/useIsUserAuth'
 import axios from 'axios'
+import { UserInput } from './inputs/Userinput'
+import { PasswordInput } from './inputs/Passwordinput'
+
+import { StyledSubmit } from './inputs/StyledSubmit'
 export default function SignIn() {
   useIsUserAuth()
     const [user, setUser] = useState('')
@@ -10,35 +16,10 @@ export default function SignIn() {
     const [gender, setGender] = useState(1)
 
    
-    const handleChange=(e)=>
-    {
-       switch (e.target.id) {
-        case 'RegisterUser':{
-            setUser(e.target.value)
-            break;
-        }
-        case 'RegisterEmail':{
-            setEmail(e.target.value)
-
-            break;
-        }
-        case 'RegisterPassword':{
-            setPassword(e.target.value)
-
-            break;
-        }
-        case 'RegisterGender':{
-            setGender(e.target.value)
-            break;
-        }
-
-
-       }
-    
 
 
 
-}
+
 
 const handleRegister=(event)=>{
     event.preventDefault();
@@ -58,20 +39,36 @@ const handleRegister=(event)=>{
             (e)=>console.log(e)
             )
 }
+const handleUserChange = (e) => {
+  setUser(e.target.value)
+}
+const handlePasswordChange = (e) => {
+  setPassword(e.target.value)
+}
+const handleEmailChange = (e) => {
+  setEmail(e.target.value)
+}
+const handleGenderChange=(e)=>
+{
+
+        setGender(e.target.value)
+   }
 
 
   return (
-    <form className='RegisterFormClass' onSubmit={handleRegister} >
-    <input className="userClass" id='RegisterUser' onChange={handleChange} required type="user" />
-    <input className="passwordClass" id='RegisterPassword' onChange={handleChange} required type="password" />
-    <input className="emailClass" id='RegisterEmail' onChange={handleChange} required type="email" />
-    {/* <input className="genderClass" id='RegisterGender' onChange={handleChange} required type="password" /> */}
-    <select className="genderClass" id='RegisterGender' value={gender} onChange={handleChange}>
-            <option value={1}>Male</option>
-            <option value={0}>Female </option>
-          </select>
-    <input  className='SubmitClass' type = "submit" value = "Submit" />
-    {/* <button className="submitClass" onClick={handleLogin} >{"בראש ניתן"}</button> */}
+    <form className='border-2 shadow-lg  flex  flex-col   lg:w-3/6  w-11/12   h-96 m-auto' onSubmit={handleRegister} >
+      <div className='flex flex-col space-y-4 py-8'>
+    <div className="space-y-4 space-x-0  mx-auto  px-1 flex flex-col lg:space-x-4 lg:space-y-0 lg:flex-row">
+    <UserInput handleUserChange={handleUserChange}  />
+    <PasswordInput   handlePasswordChange={handlePasswordChange}  />
+    </div>
+    <div className="mx-auto  px-1 flex flex-col space-y-4 ">
+     <EmailInput   handleEmailChange={handleEmailChange}  />
+   <GenderInput   gender={gender} handleGenderChange={handleGenderChange}  />
+  
+    </div>
+  </div>
+   <StyledSubmit />
 </form>
   )
 }
