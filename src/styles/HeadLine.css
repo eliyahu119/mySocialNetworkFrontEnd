@@ -35,10 +35,10 @@
    }
 
 .linksConteiner{
-   @apply  fixed flex-col  py-40  space-x-0    bg-pink-100 opacity-95  z-10 h-full w-full pointer-events-none ;
+   @apply  fixed flex-col  py-40  space-x-0    bg-pink-100   z-10 h-full w-full pointer-events-none ;
    clip-path:circle(100px at 90% -20%);
    -webkit-clip-path:circle(100px at 90% -20%);
-   transition: all 1.5s ease-out;
+   transition: all 1s ease-out;
 
 }   
 
@@ -47,8 +47,9 @@
     @apply pointer-events-auto;
     clip-path:circle(1200px at 90% 10%);
     -webkit-clip-path:circle(1200 at 90% 10%);
-    transition: all 1.5s ease-out;
- }   
+    transition: all 1s ease-out;
+ } 
+ 
 .expendButton {
         @apply inline-block   z-20  absolute  -translate-y-1/2  text-orange-500 opacity-50 ;
         right:5%;

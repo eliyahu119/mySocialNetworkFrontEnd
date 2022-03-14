@@ -17,47 +17,33 @@ export default function HeadLine() {
   /**
    * for the stylyd  Info links
    */
-  const InfoNavLink = ({ children, to, data }) => {
-    return (
-      <NavLink onClick={()=>{SetOpen(false)}} className={'InfoLinks'} to={to}>
-        {children}
-        {data}
-      </NavLink>
-    )
-  }
+
   /**
    * log out componet
    */
-  const LogOut = () => {
-    const logOutHandler = (e) => {
-      localStorage.clear();
-      navigate('/login')
-      SetOpen(false)
-    }
-    return (
-      <button className='SignInLoginLinks' onClick={logOutHandler}>
-        {'LogOut'}
-      </button>
-    )
-  }
 
-  const LogNavLink = ({ children, to }) => {
-    return (
-      <NavLink className='SignInLoginLinks' to={to}>
-        {children}
-      </NavLink>
-    )
-  }
-  const ToggleOpen=()=>{
-  SetOpen(!open);
-}
+
+
+
   const [open,SetOpen]=useState(false);
- 
-   
-  return (
-    <nav className={"headLine"}> {/*the navbar*/ }
-    
+  const ToggleOpen=()=>{
+    SetOpen(!open);
+    document.body.classList.toggle('open')
+  }
+  const constCloseOpenWindow=()=>{
+    SetOpen(false);
+    document.body.classList.remove('open')
+  }
+  
 
+  const logOutHandler = (e) => {
+    localStorage.clear();
+    navigate('/login')
+    constCloseOpenWindow();
+  }
+
+  return (
+    <nav className={`headLine  ${open?'open':''} `}> {/*the navbar*/ }
     <img src={webSiteLogo} className={"ImageConteiner"} alt={"logo"} />
      <button onClick={ToggleOpen} className='expendButton'>
      <MdDoubleArrow className='arrow' size={60} />
@@ -65,33 +51,41 @@ export default function HeadLine() {
       <div  className={`linksConteiner ${open?'open':''}`}>
         <div className='InfoLinksConteiner'>  { /*general conteiner */}
         
-            <InfoNavLink to={'/'} data={'Home'}>
+        <NavLink onClick={constCloseOpenWindow} className={'InfoLinks'} to={'/'} >
+              {'Home'}
               <GoHome />
-            </InfoNavLink>
-            <InfoNavLink to={'/about'} data={'About'}>
+            </NavLink>
+            <NavLink onClick={constCloseOpenWindow} className={'InfoLinks'} to={'/about'}>
+              {'About'}
               <BsQuestionLg />
-            </InfoNavLink>
-            <InfoNavLink to={'/terms'} data={'Terms'}>
+            </NavLink>
+            <NavLink   onClick={constCloseOpenWindow } className={'InfoLinks'} to={'/terms'}>
+            {'Terms'}
               <FaFileContract />
-            </InfoNavLink>
+            </NavLink>
      
         </div>
         <div className='LoglinksConteiner'> { /*the login and signin div */}
           {!localStorage.getItem("token") ? (
             <>
-              <LogNavLink to={'/Login'}>
-                {'Login'}
-              </LogNavLink>
-              <LogNavLink className={''} to={'/Register'}>
+            <NavLink onClick={constCloseOpenWindow} className='SignInLoginLinks' to={'/Login'}>
+               {'Login'}
+            </NavLink>
+             
+              <NavLink onClick={constCloseOpenWindow} className={'SignInLoginLinks'} to={'/Register'}>
                 {'SignIn'}
-              </LogNavLink>
+              </NavLink>
             </>
           )
-            : (<LogOut />)
+          : 
+          (
+             <button className='SignInLoginLinks' onClick={logOutHandler}>
+              {'LogOut'}
+             </button>
+            )
           }
         </div>
       </div>
-    
     </nav>
   )
 }
