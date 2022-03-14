@@ -1,5 +1,5 @@
 .headLine{
-    @apply bg-pink-100 mb-20 items-center bg-opacity-90 shadow-lg shadow-purple-50 flex  h-24 ;
+    @apply bg-pink-100 mb-20 bg-opacity-90 shadow-lg shadow-purple-50 flex py-6 ;
 }
 .SignInLoginLinks{
     @apply font-bold hover:text-gray-600 shadow-md;
@@ -22,7 +22,7 @@
 }
 
 .ImageConteiner {
-    @apply  max-w-sm     text-6xl text-orange-500  font-extrabold   px-10  font-sans;
+    @apply max-h-24 max-w-sm inline-flex z-20 text-6xl text-orange-500  font-extrabold   px-10  font-sans;
 }
 .expendButton{
     @apply hidden;
