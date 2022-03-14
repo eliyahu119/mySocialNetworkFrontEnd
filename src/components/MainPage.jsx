@@ -76,7 +76,7 @@ const MaipageClasses=''
    if(Sent){
       return (
          
-         <div className={'lg:px-32  lg:max-w-6xl px-3 space-y-6 bg-pink-50 block m-auto shadow-2xl'}>
+         <div className={'lg:px-32  lg:max-w-6xl px-3 space-y-6 bg-pink-50 block m-auto shadow-2xl py-5'}>
             <PostWriter Addpost={Addpost}/>
             <setCommentContext.Provider value={addComment}>
             {data.map(data=>(<Twit data={data} key={data._id} />))}
