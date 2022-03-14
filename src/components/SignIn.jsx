@@ -38,8 +38,9 @@ const handleRegister=(event)=>{
             console.log(data.message)
     }).catch(
             //TODO:: put here some kind of alert error to inform the user 
-            (e)=>console.log(e)
-            )
+            e=>{  alert.error(e.response.data.message);
+                  console.log(e)
+            })
 }
 const handleUserChange = (e) => {
   setUser(e.target.value)

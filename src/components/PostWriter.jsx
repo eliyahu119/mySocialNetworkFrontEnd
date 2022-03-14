@@ -2,8 +2,7 @@ import React, { useState,useRef } from 'react'
 import ProfilePic from './ProfilePic'
 import axios from 'axios'
 import { AiOutlineSend} from "react-icons/ai"
-
-
+import { useAlert } from 'react-alert'
 /**
  * Post writer
  * writes the Post than sent it to the server and then display it on the page
@@ -13,7 +12,7 @@ import { AiOutlineSend} from "react-icons/ai"
 export default function PostWriter({Addpost}) {
 const [content, setContent] = useState('')
 const buttonRef=useRef()
-
+const alert= useAlert();
  const onChangeContent =(e)=>{  
    setContent(e.target.value)
  }
@@ -23,7 +22,7 @@ const buttonRef=useRef()
  */
  const sendpost=(e)=>{
    if(content.length<10){
-    alert("use more than 10 charcters") //put here the cool alert
+    alert.show("use more than 10 charcters") //put here the cool alert
      return 
    }
    buttonRef.current.disabled = true;

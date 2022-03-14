@@ -3,7 +3,7 @@ import ProfilePic from './ProfilePic'
 import axios from 'axios'
 import {setCommentContext} from '../contex/setCommentContext'
 import { AiOutlineSend} from "react-icons/ai"
-
+import { useAlert } from 'react-alert'
 
 /**
  * comment writer
@@ -15,6 +15,7 @@ export default function CommentWriter({postID }) {
 const AddComment=useContext(setCommentContext)
 const [content, setContent] = useState('')
 const buttonRef=useRef()
+const alert=useAlert();
  const onChangeContent =(e)=>{  
    setContent(e.target.value)
  }
@@ -23,9 +24,9 @@ const buttonRef=useRef()
  * @param {} e 
  */
  const sendcomment=(e)=>{
-
-   if(content.length<10){
-     alert("use more than 10 charcters") //put here the cool alert
+  
+  if(content.length<10){
+     alert.show("use more than 10 charcters") //put here the cool alert
      return 
    }
    buttonRef.current.disabled = true;

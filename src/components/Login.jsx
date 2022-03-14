@@ -33,7 +33,7 @@ export default function Login() {
             ).catch(
                 //TODO:: put here some kind of alert error to inform the user 
                 (e)=>{
-                   e.response&&e.response.data&&alert.show(e.response.data.message)
+                   e.response&&e.response.data&&alert.error(e.response.data.message)
                 }
             )
     }
