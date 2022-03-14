@@ -23,7 +23,7 @@ export default function Login() {
             password,
             user
         }
-        axios.post('http://127.0.0.1:80/login',logInfo).then(
+        axios.post('/login',logInfo).then(
             res=>res.data).then(
             data=>{
             localStorage.setItem("token",data.token);

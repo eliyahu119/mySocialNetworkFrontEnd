@@ -22,7 +22,7 @@ if (likes!=null){
 
 const HasClicked=()=>{
    
-    axios.post(`http://127.0.0.1:80/${clicked?'rlike':'like'}`,{postCommentID:ID},
+    axios.post(`/${clicked?'rlike':'like'}`,{postCommentID:ID},
     {
         headers:{
             'x-access-token':localStorage.getItem('token')

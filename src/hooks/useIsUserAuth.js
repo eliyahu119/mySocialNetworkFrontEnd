@@ -11,7 +11,7 @@ import axios from "axios";
 export default function useIsUserAuth() {
    const navigate=useNavigate()
     useEffect(() => {
-        axios.get('http://127.0.0.1:80/isUserAuth',{
+        axios.get('/isUserAuth',{
             headers:{
                'x-access-token':localStorage.getItem('token')
             }

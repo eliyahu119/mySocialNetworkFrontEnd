@@ -16,7 +16,7 @@ function MainPage() {
 const MaipageClasses=''
   useEffect(() => {
    localStorage.getItem('token') || navigate('/login'); //if there isnt any jwt  
-      axios.get('http://127.0.0.1:80/getData', {
+      axios.get('/getData', {
          headers: {
             'x-access-token': localStorage.getItem('token')
          }

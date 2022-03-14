@@ -29,7 +29,7 @@ const handleRegister=(event)=>{
         email,
         gender:!!gender
     }
-    axios.post('http://127.0.0.1:80/signin',SignInfo).then(
+    axios.post('/signin',SignInfo).then(
         res=>res.data).then(
         data=>{ 
             //TODO::put here some alert

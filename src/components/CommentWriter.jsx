@@ -29,7 +29,7 @@ const buttonRef=useRef()
      return 
    }
    buttonRef.current.disabled = true;
-   axios.post('http://127.0.0.1:80/comment',{content,postID},
+   axios.post('/comment',{content,postID},
   {
       headers:{
           'x-access-token':localStorage.getItem('token')
