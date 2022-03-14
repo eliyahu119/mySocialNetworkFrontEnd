@@ -6,7 +6,7 @@ import useIsUserAuth from '../hooks/useIsUserAuth'
 import axios from 'axios'
 import { UserInput } from './inputs/Userinput'
 import { PasswordInput } from './inputs/Passwordinput'
-
+import { useAlert } from 'react-alert';
 import { StyledSubmit } from './inputs/StyledSubmit'
 export default function SignIn() {
   useIsUserAuth()
@@ -22,6 +22,7 @@ export default function SignIn() {
 
 
 const handleRegister=(event)=>{
+  const alert=useAlert();
     event.preventDefault();
     const SignInfo = {
         password,
@@ -33,6 +34,7 @@ const handleRegister=(event)=>{
         res=>res.data).then(
         data=>{ 
             //TODO::put here some alert
+            alert.success("User has been registered")
             console.log(data.message)
     }).catch(
             //TODO:: put here some kind of alert error to inform the user 
