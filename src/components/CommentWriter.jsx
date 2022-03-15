@@ -57,8 +57,8 @@ const alert=useAlert();
     <input className='ml-3 pl-2 w-80  pb-2  pt-2 rounded-2xl bg-slate-200 ' 
     placeholder='write comment....'
     value={content} 
-    maxLength='60'
-    minLength={10} 
+    maxLength={100}
+    minLength={2} 
     onChange={onChangeContent}
     required
     id="" />

@@ -44,8 +44,8 @@ const alert= useAlert();
     <ProfilePic gender={JSON.parse(localStorage['userInfo']).gender}/>
     <input className=' p-4 rounded-3xl w-7/12  m-2 text-xl' 
     value={content} 
-    maxLength='60'
-    minLength={10} 
+    maxLength={100}
+    minLength={2} 
     onChange={onChangeContent}
     required
     placeholder={`Write something as ${JSON.parse(localStorage['userInfo']).user}...`}
