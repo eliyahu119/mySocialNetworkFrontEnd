@@ -23,12 +23,14 @@ const MaipageClasses=''
       }
       ).then(result => result.data)
          .then((data) => {
-            SetData(reverseArr(data).map(
-               (item)=>{
-                  item.commentsID&&(item.commentsID=reverseArr(item.commentsID))
-                  return item
-               }
-               ))
+            SetData(reverseArr(data)
+            // .map(
+            //    (item)=>{
+            //       item.commentsID&&(item.commentsID=reverseArr(item.commentsID))
+            //       return item
+            //    }
+            //    )
+               )
             setSent(true);
          })
          .catch((error) => {
