@@ -21,8 +21,9 @@ const alert= useAlert();
  * @param {} e 
  */
  const sendpost=(e)=>{
-   if(content.length<10){
-    alert.show("use more than 10 charcters") //put here the cool alert
+   setContent(content.trim());
+   if(content.length<1){
+    alert.show("use more than charcter") //put here the cool alert
      return 
    }
    buttonRef.current.disabled = true;
