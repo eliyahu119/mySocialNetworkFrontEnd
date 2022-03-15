@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import useIsUserAuth from "../hooks/useIsUserAuth";
 import { useAlert } from 'react-alert';
-
+import { NavLink } from 'react-router-dom'
 
 
 export default function Login() {
@@ -53,6 +53,15 @@ export default function Login() {
             <UserInput handleUserChange={handleUserChange}  />
             <PasswordInput   handlePasswordChange={handlePasswordChange}  />
            </div>
+            <p className=' m-auto text-bs text-orange-500 font-semibold lg:text-xl'>{"don't have a user yet? "} 
+            <NavLink className='' to={'/Register'}>
+             <u>
+             <i>
+             register now!
+             </i>
+             </u>
+            </NavLink>
+            </p>
            <StyledSubmit     />
             {/* <button className="submitClass" onClick={handleLogin} >{"בראש ניתן"}</button> */}
         </form>
