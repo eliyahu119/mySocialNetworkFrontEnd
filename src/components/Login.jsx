@@ -33,7 +33,7 @@ export default function Login() {
             ).catch(
                 //TODO:: put here some kind of alert error to inform the user 
                 (e)=>{
-                   e.response&&e.response.data&&alert.error(e.response.data.message)
+                   e.response&&e.response.data&&alert.error((e.response.data.message||"Cannot connect the server"))
                 }
             )
     }
@@ -55,16 +55,14 @@ export default function Login() {
            </div>
             <p className=' m-auto text-bs text-orange-500 font-semibold lg:text-xl'>{"don't have a user yet? "} 
             <NavLink className='' to={'/Register'}>
-             <u>
-             <i>
+             <u className=' hover:text-orange-700'>
+             <i >
              register now!
              </i>
              </u>
             </NavLink>
             </p>
-           <StyledSubmit     />
-            {/* <button className="submitClass" onClick={handleLogin} >{"בראש ניתן"}</button> */}
-        </form>
+           <StyledSubmit     />        </form>
     )
 
         

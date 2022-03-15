@@ -8,6 +8,8 @@ import { UserInput } from './inputs/Userinput'
 import { PasswordInput } from './inputs/Passwordinput'
 import { useAlert } from 'react-alert';
 import { StyledSubmit } from './inputs/StyledSubmit'
+import { NavLink } from 'react-router-dom'
+
 export default function SignIn() {
   useIsUserAuth()
     const [user, setUser] = useState('')
@@ -38,7 +40,7 @@ const handleRegister=(event)=>{
             console.log(data.message)
     }).catch(
             //TODO:: put here some kind of alert error to inform the user 
-            e=>{  alert.error(e.response.data.message);
+            e=>{e.response&&e.response.data&&alert.error(e.response.data.message||"Cannot connect the server");
                   console.log(e)
             })
 }
@@ -71,6 +73,15 @@ const handleGenderChange=(e)=>
   
     </div>
   </div>
+  <p className=' m-auto text-bs text-orange-500 font-semibold lg:text-xl'>{"have a user? "} 
+            <NavLink className='' to={'/Login'}>
+             <u className=' hover:text-orange-700'>
+             <i >
+             log now!
+             </i>
+             </u>
+            </NavLink>
+            </p>
    <StyledSubmit />
 </form>
   )
