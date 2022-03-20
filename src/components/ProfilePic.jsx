@@ -8,8 +8,8 @@ function ProfilePic({gender})
 {
     
     return (
-        <div className="imagediv">
-        <img src={gender?boyLogo:girlLogo} className="imageSource" alt="profile" />
+        <div className=" w-12 h-12  rounded-full  bg-blue-200   align-middle inline-flex">
+        <img src={gender?boyLogo:girlLogo} className="w-10 h-10 m-auto" alt="profile" />
         </div>
     );
   }

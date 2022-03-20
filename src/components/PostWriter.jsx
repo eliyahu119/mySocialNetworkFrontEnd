@@ -43,7 +43,7 @@ const alert= useAlert();
   return (
     <div className=' mt-5 bg-slate-200 p-10 rounded-3xl flex items-center shadow-md'>
     <ProfilePic gender={JSON.parse(localStorage['userInfo']).gender}/>
-    <input className=' p-4 rounded-3xl w-7/12  m-2 text-xl' 
+    <input className=' p-4 rounded-3xl  w-8/12  lg:w-10/12 m-2 text-xl' 
     value={content} 
     maxLength={100}
     minLength={2} 
