@@ -78,7 +78,7 @@ const MaipageClasses=''
    if(Sent){
       return (
          
-         <div className={'lg:px-32  lg:max-w-6xl px-3 space-y-6 bg-pink-50 block m-auto shadow-2xl py-5'}>
+         <div className={'lg:px-32  lg:max-w-6xl  space-y-6 bg-pink-50 block m-auto lg:shadow-2xl py-5'}>
             <PostWriter Addpost={Addpost}/>
             <setCommentContext.Provider value={addComment}>
             {data.map(data=>(<Twit data={data} key={data._id} />))}
@@ -86,6 +86,9 @@ const MaipageClasses=''
          </div>
         );
       }
+      /**
+       * returns loader
+       */
     return (
      <div className={'lg:px-32  lg:max-w-6xl px-3 space-y-6 bg-pink-50 block m-auto '}>
         <div className="flex  justify-center m-0 align-middle ">

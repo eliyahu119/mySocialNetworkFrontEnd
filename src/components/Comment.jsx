@@ -4,7 +4,11 @@ import LikeComponent from './LikeComponent';
 
 
 
-
+/**
+ * the comment component, includes  likes and profile picture,
+ * @param {*} param0 
+ * @returns 
+ */
 const Comment=({comment})=> {
     return (
         <div className='border-2 border-black rounded-3xl  m-3  p-2  shadow-lg    bg-violet-50'>

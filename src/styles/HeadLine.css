@@ -2,10 +2,10 @@
     @apply bg-pink-100 mb-20 bg-opacity-90 shadow-lg shadow-purple-50 flex py-6 ;
 }
 .SignInLoginLinks{
-    @apply font-bold hover:text-gray-600 shadow-md;
+    @apply font-bold hover:text-gray-600 ;
 }
 .InfoLinks{
-    @apply text-orange-400   hover:text-orange-600  shadow-md shadow-orange-200  items-center flex space-x-1;
+    @apply text-orange-400   hover:text-orange-600  shadow-orange-200  items-center flex space-x-1;
 }
 
 .InfoLinksConteiner{
