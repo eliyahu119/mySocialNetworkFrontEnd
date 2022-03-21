@@ -1,6 +1,6 @@
 
 # MYSN 
-This project was is part of the MySocialNetwork Project.
+This project is part of the MySocialNetwork Project.
 
  the [backEndRepo](https://github.com/eliyahu119/mySocialNetworkBackEnd).
 
