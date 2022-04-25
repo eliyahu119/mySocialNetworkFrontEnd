@@ -1,4 +1,4 @@
-import Twit from "./Twit";
+import Post from "./Post";
 import {useState,useEffect} from "react";
 import LoadingElement from "./LoadingElement";
 import { useNavigate } from "react-router-dom";
@@ -81,7 +81,7 @@ const MaipageClasses=''
          <div className={'lg:px-32  lg:max-w-6xl  space-y-6 bg-pink-50 block m-auto lg:shadow-2xl py-5'}>
             <PostWriter Addpost={Addpost}/>
             <setCommentContext.Provider value={addComment}>
-            {data.map(data=>(<Twit data={data} key={data._id} />))}
+            {data.map(data=>(<Post data={data} key={data._id} />))}
          </setCommentContext.Provider>
          </div>
         );

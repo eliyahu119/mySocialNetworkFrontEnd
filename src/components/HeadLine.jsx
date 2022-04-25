@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 // import { BsQuestionLg } from "react-icons/bs";
 // import { FaFileContract } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import '../../styles/HeadLine.css'
+import '../styles/HeadLine.css'
 import {MdDoubleArrow} from 'react-icons/md'
 
 /**
