@@ -23,10 +23,10 @@ const alert= useAlert();
  const sendpost=(e)=>{
    setContent(content.trim());
    if(content.length<1){
-    alert.show("use more than charcter") //put here the cool alert
+    alert.show("use more than a charcter") //put here the cool alert
      return 
    }
-   buttonRef.current.disabled = true;
+  buttonRef.current.disabled = true;
   axios.post('/post',{content},
   {
       headers:{

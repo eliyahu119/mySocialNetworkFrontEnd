@@ -16,7 +16,7 @@ function MainPage() {
 const MaipageClasses=''
   useEffect(() => {
    localStorage.getItem('token') || navigate('/login'); //if there isnt any jwt  
-      axios.get('/getData', {
+      axios.get('/post', {
          headers: {
             'x-access-token': localStorage.getItem('token')
          }
@@ -24,13 +24,8 @@ const MaipageClasses=''
       ).then(result => result.data)
          .then((data) => {
             SetData(reverseArr(data)
-            // .map(
-            //    (item)=>{
-            //       item.commentsID&&(item.commentsID=reverseArr(item.commentsID))
-            //       return item
-            //    }
-            //    )
-               )
+          
+            )
             setSent(true);
          })
          .catch((error) => {

@@ -48,7 +48,7 @@ const frontEndclickAction=()=>{
 }
 return (
     <div>
-    <p className="text-sm text-center  text-gray-400 w-20">{`${countlikes} ❤`}</p>
+    <p className="text-sm text-center   text-gray-400 w-20">{`${countlikes} ❤`}</p>
     {/* <button onClick={HasClicked} className={`LikeComponent ${clicked?"ClikedLike":""} `}>{countlikes}</button> */}
     <button onClick={HasClicked} className={`like-button ${clicked?'liked':''}`} id="wow">
         <span className='like-icon'>
