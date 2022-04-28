@@ -21,7 +21,7 @@ function Post({data}) {
         <div className=" relative pl-10 pb-5 text-xl">  {/**the content conteiner */}
         {data.content}
         </div>
-      <LikeComponent likes={data?.likes}  ID={data._id}/>
+      <LikeComponent likes={data?.likes}  postId={data._id}/>
       </div>
       <Comments comments={data?.commentsID} postID={data._id} />
       </div>

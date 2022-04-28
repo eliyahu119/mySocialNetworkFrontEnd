@@ -9,7 +9,7 @@ import LikeComponent from './LikeComponent';
  * @param {*} param0 
  * @returns 
  */
-const Comment=({comment})=> {
+const Comment=({comment,postID})=> {
     return (
         <div className='border-2 border-black rounded-3xl  m-3  p-2  shadow-lg    bg-violet-50'>
         <ProfilePic gender={comment.userID.gender} />
@@ -22,7 +22,7 @@ const Comment=({comment})=> {
         <p className=' text-base p-3' >
          {comment.content}
         </p>
-       <LikeComponent likes={comment.likes} ID={comment._id} />
+       <LikeComponent likes={comment.likes} postId={postID}  commentId={comment._id} />
         </div>
     )
   }

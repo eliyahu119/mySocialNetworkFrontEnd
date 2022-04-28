@@ -30,7 +30,7 @@ const alert=useAlert();
      return 
    }
    buttonRef.current.disabled = true;
-   axios.post('/comment',{content,postID},
+   axios.post(`post/${postID}/comment`,{content},
   {
       headers:{
           'x-access-token':localStorage.getItem('token')

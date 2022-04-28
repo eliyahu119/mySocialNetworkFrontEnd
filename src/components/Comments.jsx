@@ -12,7 +12,7 @@ export default function Comments({comments,postID}) {
     <div className=" border-gray-300 rounded-md  ">
     <CommentWriter postID={postID} />
     <div className=' block max-w-xl m-auto justify-center align-middle'>
-    {comments&&comments.map((comment)=>(<Comment comment={comment} key={comment._id}/>))}
+    {comments&&comments.map((comment)=>(<Comment comment={comment} postID={postID} key={comment._id}/>))}
      </div>
     </div>
   )
