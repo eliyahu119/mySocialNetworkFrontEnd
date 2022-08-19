@@ -19,7 +19,7 @@ export default function CommentWriter({ postID }) {
     const onChangeContent = (e) => {
         setContent(e.target.value)
     }
-    /**
+    /**g
      * sends the post to the server
      * @param {} e
      */
