@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react'
 import ProfilePic from './ProfilePic'
-import axios from 'axios'
 import { AiOutlineSend } from 'react-icons/ai'
 import { useAlert } from 'react-alert'
+import api from '../core/api'
 /**
  * Post writer
  * writes the Post than sent it to the server and then display it on the page
@@ -27,16 +27,7 @@ export default function PostWriter({ Addpost }) {
             return
         }
         buttonRef.current.disabled = true
-        axios
-            .post(
-                '/post',
-                { content },
-                {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                }
-            )
+        api.post('/post', { content })
             .then((res) => res.data)
             .then((data) => Addpost(data))
             .catch((e) => console.log(e))

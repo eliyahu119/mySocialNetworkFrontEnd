@@ -3,12 +3,12 @@ import { EmailInput } from './inputs/EmailInput'
 
 import { useState } from 'react'
 import useIsUserAuth from '../hooks/useIsUserAuth'
-import axios from 'axios'
 import { UserInput } from './inputs/Userinput'
 import { PasswordInput } from './inputs/Passwordinput'
 import { useAlert } from 'react-alert'
 import { StyledSubmit } from './inputs/StyledSubmit'
 import { NavLink } from 'react-router-dom'
+import api from '../core/api'
 
 export default function SignIn() {
     useIsUserAuth()
@@ -26,8 +26,7 @@ export default function SignIn() {
             email,
             gender: !!gender,
         }
-        axios
-            .post('/signin', SignInfo)
+        api.post('/signin', SignInfo)
             .then((res) => res.data)
             .then((data) => {
                 //TODO::put here some alert

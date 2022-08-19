@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 //import"../styles/LikeComponent.css";
 import '../styles/like.css'
+import api from '../core/api'
 
 //the like component
 const LikeComponent = ({ likes, postId, commentId = null }) => {
@@ -28,22 +28,9 @@ const LikeComponent = ({ likes, postId, commentId = null }) => {
     }
     async function SendMethod(url) {
         if (!clicked) {
-            return await axios.post(
-                url,
-                {},
-                {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                }
-            )
+            return await api.post(url)
         }
-
-        return await axios.delete(url, {
-            headers: {
-                'x-access-token': localStorage.getItem('token'),
-            },
-        })
+        return await api.delete(url)
     }
 
     const frontEndclickAction = () => {

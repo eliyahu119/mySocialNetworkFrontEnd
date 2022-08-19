@@ -2,26 +2,22 @@ import Post from './Post'
 import { useState, useEffect } from 'react'
 import LoadingElement from './LoadingElement'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import PostWriter from './PostWriter'
 import { setCommentContext } from '../contex/setCommentContext'
 import { reverseArr } from '../utils'
+import api from '../core/api'
 
 //the main page of the project.
 function MainPage() {
     const [data, SetData] = useState()
     const [Sent, setSent] = useState(false)
     const navigate = useNavigate()
-
     const MaipageClasses = ''
+
     useEffect(() => {
         localStorage.getItem('token') || navigate('/login') //if there isnt any jwt
-        axios
-            .get('/post', {
-                headers: {
-                    'x-access-token': localStorage.getItem('token'),
-                },
-            })
+
+        api.get('/post')
             .then((result) => result.data)
             .then((data) => {
                 SetData(reverseArr(data))

@@ -3,10 +3,10 @@ import { PasswordInput } from './inputs/Passwordinput'
 import { UserInput } from './inputs/Userinput'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import useIsUserAuth from '../hooks/useIsUserAuth'
 import { useAlert } from 'react-alert'
 import { NavLink } from 'react-router-dom'
+import api from '../core/api'
 
 export default function Login() {
     const navigate = useNavigate()
@@ -20,8 +20,7 @@ export default function Login() {
             password,
             user,
         }
-        axios
-            .post('/login', logInfo)
+        api.post('/login', logInfo)
             .then((res) => res.data)
             .then((data) => {
                 localStorage.setItem('token', data.token)

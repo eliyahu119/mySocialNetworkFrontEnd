@@ -1,9 +1,9 @@
 import React, { useRef, useContext, useState } from 'react'
 import ProfilePic from './ProfilePic'
-import axios from 'axios'
 import { setCommentContext } from '../contex/setCommentContext'
 import { AiOutlineSend } from 'react-icons/ai'
 import { useAlert } from 'react-alert'
+import api from '../core/api'
 
 /**
  * comment writer
@@ -30,16 +30,7 @@ export default function CommentWriter({ postID }) {
             return
         }
         buttonRef.current.disabled = true
-        axios
-            .post(
-                `post/${postID}/comment`,
-                { content },
-                {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                }
-            )
+        api.post(`post/${postID}/comment`, { content })
             .then((res) => res.data)
             .then((data) => {
                 console.log(data)

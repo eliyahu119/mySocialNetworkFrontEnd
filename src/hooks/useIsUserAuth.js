@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../core/api'
 
 /**
  * check if the use is authintacted with the server
@@ -11,12 +11,7 @@ import axios from 'axios'
 export default function useIsUserAuth() {
     const navigate = useNavigate()
     useEffect(() => {
-        axios
-            .get('/isUserAuth', {
-                headers: {
-                    'x-access-token': localStorage.getItem('token'),
-                },
-            })
+        api.get('/isUserAuth')
             .then((result) => result.data)
             .then((data) => {
                 data.isLoggedIn && navigate('/')
