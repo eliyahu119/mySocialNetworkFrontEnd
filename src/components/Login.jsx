@@ -1,7 +1,7 @@
 import { StyledSubmit } from './inputs/StyledSubmit'
 import { PasswordInput } from './inputs/Passwordinput'
 import { UserInput } from './inputs/Userinput'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useIsUserAuth from '../hooks/useIsUserAuth'
 import { useAlert } from 'react-alert'

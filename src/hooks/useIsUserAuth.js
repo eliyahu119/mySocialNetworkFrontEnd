@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from '../core/api'
@@ -19,5 +18,5 @@ export default function useIsUserAuth() {
             .catch((e) => {
                 localStorage.clear()
             })
-    }, [])
+    }, []) //eslint-disable-line
 }

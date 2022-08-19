@@ -15,7 +15,7 @@ const LikeComponent = ({ likes, postId, commentId = null }) => {
                 setClicked(true)
             }
         }
-    }, [])
+    }, []) //eslint-disable-line
 
     const HasClicked = async () => {
         const url = `post/${postId}/${

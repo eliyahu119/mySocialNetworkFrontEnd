@@ -12,7 +12,6 @@ function MainPage() {
     const [data, SetData] = useState()
     const [Sent, setSent] = useState(false)
     const navigate = useNavigate()
-    const MaipageClasses = ''
 
     useEffect(() => {
         localStorage.getItem('token') || navigate('/login') //if there isnt any jwt
