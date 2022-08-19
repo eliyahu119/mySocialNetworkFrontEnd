@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import PostWriter from './PostWriter'
 import { setCommentContext } from '../contex/setCommentContext'
-import { reverseArr } from '../helpFunctions/utils.js'
+import { reverseArr } from '../utils'
 
 //the main page of the project.
 function MainPage() {
