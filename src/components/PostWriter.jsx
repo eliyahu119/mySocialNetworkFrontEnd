@@ -20,20 +20,21 @@ export default function PostWriter({ Addpost }) {
      * sends the post to the server
      * @param {} e
      */
-    const sendpost = (e) => {
+    const sendpost = async (e) => {
         setContent(content.trim())
         if (content.length < 1) {
             alert.show('use more than a charcter') //put here the cool alert
             return
         }
         buttonRef.current.disabled = true
-        api.post('/post', { content })
-            .then((res) => res.data)
-            .then((data) => Addpost(data))
-            .catch((e) => console.log(e))
-            .finally(() => {
-                buttonRef.current.disabled = false
-            })
+        try {
+            const res = await api.post('/post', { content })
+            const data = res.data
+            Addpost(data)
+        } catch (e) {
+            console.log(e)
+        }
+        buttonRef.current.disabled = false
         setContent('')
     }
     return (

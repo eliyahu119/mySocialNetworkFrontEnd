@@ -23,24 +23,24 @@ export default function CommentWriter({ postID }) {
      * sends the post to the server
      * @param {} e
      */
-    const sendcomment = (e) => {
+    const sendcomment = async (e) => {
         setContent(content.trim())
         if (content.length < 1) {
             alert.show('use more than a charcter') //put here the cool alert
             return
         }
         buttonRef.current.disabled = true
-        api.post(`post/${postID}/comment`, { content })
-            .then((res) => res.data)
-            .then((data) => {
-                console.log(data)
-                AddComment(postID, data.data) //the context from main page
-                setContent('')
-            })
-            .catch((e) => console.log(e))
-            .finally(() => {
-                buttonRef.current.disabled = false
-            })
+        try {
+            const res = api.post(`post/${postID}/comment`, { content })
+            const data = res.data
+            console.log(data)
+            AddComment(postID, data.data) //the context from main page
+            setContent('')
+        } catch (e) {
+            console.log(e)
+        } finally {
+            buttonRef.current.disabled = false
+        }
     }
     return (
         <div className="p-2 flex items-center">

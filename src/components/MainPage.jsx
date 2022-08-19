@@ -16,14 +16,13 @@ function MainPage() {
 
     useEffect(() => {
         localStorage.getItem('token') || navigate('/login') //if there isnt any jwt
-
-        api.get('/post')
-            .then((result) => result.data)
-            .then((data) => {
+        const getPosts = async () => {
+            try {
+                const result = await api
+                const data = result.data
                 SetData(reverseArr(data))
                 setSent(true)
-            })
-            .catch((error) => {
+            } catch (error) {
                 if (error.response) {
                     if (error.response.status === 401) {
                         localStorage.clear()
@@ -31,7 +30,9 @@ function MainPage() {
                     }
                 }
                 console.log(error)
-            })
+            }
+        }
+        getPosts()
 
         return () => {
             setSent(false)

@@ -14,30 +14,25 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const alert = useAlert()
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault()
         const logInfo = {
             password,
             user,
         }
-        api.post('/login', logInfo)
-            .then((res) => res.data)
-            .then((data) => {
-                localStorage.setItem('token', data.token)
-                localStorage.setItem('userInfo', JSON.stringify(data.userInfo))
-                navigate('/')
-            })
-            .catch(
-                //TODO:: put here some kind of alert error to inform the user
-                (e) => {
-                    e.response &&
-                        e.response.data &&
-                        alert.error(
-                            e.response.data.message ||
-                                'Cannot connect the server'
-                        )
-                }
-            )
+        try {
+            const respond = await api.post('/login', logInfo)
+            const data = respond.data
+            localStorage.setItem('token', data.token)
+            localStorage.setItem('userInfo', JSON.stringify(data.userInfo))
+            navigate('/')
+        } catch (e) {
+            e.response &&
+                e.response.data &&
+                alert.error(
+                    e.response.data.message || 'Cannot connect the server'
+                )
+        }
     }
 
     useIsUserAuth()

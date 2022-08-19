@@ -17,14 +17,16 @@ const LikeComponent = ({ likes, postId, commentId = null }) => {
         }
     }, [])
 
-    const HasClicked = () => {
+    const HasClicked = async () => {
         const url = `post/${postId}/${
             commentId ? `comment/${commentId}` : ''
         }/like`
-        SendMethod(url)
-            .then((res) => res.data)
-            .then(frontEndclickAction())
-            .catch((e) => console.log(e))
+        try {
+            await SendMethod(url)
+            frontEndclickAction()
+        } catch (e) {
+            console.log(e)
+        }
     }
     async function SendMethod(url) {
         if (!clicked) {
