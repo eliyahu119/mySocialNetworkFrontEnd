@@ -41,7 +41,7 @@ const api = {
     delete: async (url) => {
         const config = getConfig()
         try {
-            const result = await axios.defaults(url, config)
+            const result = await axios.delete(url, config)
             return result
         } catch (error) {
             throw error
