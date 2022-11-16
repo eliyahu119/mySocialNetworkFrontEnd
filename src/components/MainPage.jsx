@@ -17,7 +17,7 @@ function MainPage() {
         localStorage.getItem('token') || navigate('/login') //if there isnt any jwt
         const getPosts = async () => {
             try {
-                const result = await api
+                const result = await api.get('post');
                 const data = result.data
                 SetData(reverseArr(data))
                 setSent(true)
