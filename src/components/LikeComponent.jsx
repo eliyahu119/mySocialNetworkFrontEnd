@@ -29,10 +29,15 @@ const LikeComponent = ({ likes, postId, commentId = null }) => {
         }
     }
     async function SendMethod(url) {
+        try{
         if (!clicked) {
             return await api.post(url)
         }
         return await api.delete(url)
+        }catch(e){
+            console.log(e)
+            return ''
+        }
     }
 
     const frontEndclickAction = () => {
